@@ -30,13 +30,15 @@ class ContactPage extends StatelessWidget {
             child: Text(
                 'Email address: ${contact.emails.isNotEmpty ? contact.emails.first.address : '(none)'}'),
           ),
-          OutlinedButton(
-              onPressed: () async {
-                await contact.delete();
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => MyApp()));
-              },
-              child: Text("Delete Contact"))
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            OutlinedButton(
+                onPressed: () async {
+                  await contact.delete();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyApp()));
+                },
+                child: Text("Delete Contact"))
+          ])
         ]),
       ));
 }
