@@ -48,7 +48,8 @@ class _AddContac extends State<AddContac> {
       appBar: AppBar(
         title: const Text("Add Contact"),
       ),
-      body: Form(
+      body: SingleChildScrollView(
+          child: Form(
         key: addcontactkey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +172,7 @@ class _AddContac extends State<AddContac> {
                 child: Text("Add Contact"))
           ],
         ),
-      ),
+      )),
     );
   }
 
