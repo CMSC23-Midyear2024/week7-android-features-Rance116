@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:week_7_android_features/main.dart';
 
 class ContactPage extends StatelessWidget {
   final Contact contact;
@@ -29,6 +30,13 @@ class ContactPage extends StatelessWidget {
             child: Text(
                 'Email address: ${contact.emails.isNotEmpty ? contact.emails.first.address : '(none)'}'),
           ),
+          OutlinedButton(
+              onPressed: () async {
+                await contact.delete();
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => MyApp()));
+              },
+              child: Text("Delete Contact"))
         ]),
       ));
 }
